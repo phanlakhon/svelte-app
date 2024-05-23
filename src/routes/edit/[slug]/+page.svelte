@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import InputText from '../../../components/InputText.svelte';
 
 	export let data;
@@ -15,7 +16,7 @@
 
 		if (!error && books.id) {
 			try {
-				await fetch(`https://api-to-do-list-0t2q.onrender.com/books/${books.id}`, {
+				await fetch(`${env.PUBLIC_API_BOOKS}/books/${books.id}`, {
 					method: 'PUT',
 					headers: {
 						Accept: 'application/json',

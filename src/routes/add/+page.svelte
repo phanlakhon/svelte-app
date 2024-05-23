@@ -1,4 +1,5 @@
 <script>
+	import { env } from '$env/dynamic/public';
 	import InputText from '../../components/InputText.svelte';
 
 	let title = '';
@@ -12,7 +13,7 @@
 
 		if (!error) {
 			try {
-				await fetch('https://api-to-do-list-0t2q.onrender.com/books', {
+				await fetch(`${env.PUBLIC_API_BOOKS}/books`, {
 					method: 'POST',
 					headers: {
 						Accept: 'application/json',

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import { fly } from 'svelte/transition';
 	import Modal from '../components/ModalDelete.svelte';
 
@@ -18,14 +19,14 @@
 	}
 
 	async function updateData() {
-		const res = await fetch(`https://api-to-do-list-0t2q.onrender.com/books`);
+		const res = await fetch(`${env.PUBLIC_API_BOOKS}/books`);
 		const newData = await res.json();
 		if (newData.message) books = [];
 		books = newData.sort((a: any, b: any) => b.id - a.id);
 	}
 
 	async function handleDelete() {
-		await fetch(`https://api-to-do-list-0t2q.onrender.com/books/${deleteId}`, {
+		await fetch(`${env.PUBLIC_API_BOOKS}/books/${deleteId}`, {
 			method: 'DELETE'
 		})
 			.then(async (res: any) => {

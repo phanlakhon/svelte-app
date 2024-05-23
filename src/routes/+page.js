@@ -1,6 +1,8 @@
+import { env } from '$env/dynamic/public';
+
 export async function load() {
 	async function getData() {
-		const res = await fetch(`https://api-to-do-list-0t2q.onrender.com/books`);
+		const res = await fetch(`${env.PUBLIC_API_BOOKS}/books`);
 		const books = await res.json();
 
 		if (books.message) return [];
