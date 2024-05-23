@@ -40,7 +40,7 @@
 </script>
 
 <main class="p-4 pt-20 h-screen">
-	<div class="text-center">Edit product</div>
+	<div class="text-center">Edit Book</div>
 	<div class="mx-auto my-10 max-w-2xl">
 		<form on:submit|preventDefault={handleSubmit}>
 			<InputText title="Title" bind:value={title} />
